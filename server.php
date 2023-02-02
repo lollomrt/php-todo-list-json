@@ -11,8 +11,6 @@ error_reporting(E_ALL);
 
     $todo_list = json_decode($string, true);
 
-    echo isset($_POST['addedTask'])
-
     if(isset($_POST['addedTask'])){
         $obj = [
             "language" => $_POST['addedTask'],
