@@ -22,14 +22,14 @@
                         <table class="table table-striped w-100">
                             <thead>
                                 <tr>
-                                    <td>linguaggi</td>
-                                    <td>elimina</td>
+                                    <td class="col-10">linguaggi</td>
+                                    <td class="col-2">elimina</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>{{ ciao }}</td>
-                                    <td><button class="btn btn-danger">X</button></td>
+                                <tr v-for="elem in tasks">
+                                    <td>{{ elem.language }}</td>
+                                    <td class="w-25"><button class="btn btn-danger">X</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -37,10 +37,10 @@
                 </div>
                 <div class="row w-50">
                     <div class="col">
-                        <form action="">
-                            <input type="text">
-                            <button type="submit">Invia</button>
-                        </form>
+                        <div class="v-100 d-flex justify-content-between gap-3">
+                            <input type="text" class="col-9" v-model="newTask">
+                            <button type="submit" class="col-2" @click="pushTask">Invia</button>
+                        </div>
                     </div>
                 </div>
             </div>

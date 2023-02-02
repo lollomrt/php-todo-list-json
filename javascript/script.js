@@ -3,14 +3,27 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            ciao: 'ciao!',
             apiUrl: './server.php',
-            newTask: [],
+            newTask: '',
+            tasks: [],
         }
     },
-    crated() {
-        axios.get(this.apiUrl).then((results) => {
-            console.log(results.data)
+    mounted() {
+        axios.get(this.apiUrl).then((response) => {
+            this.tasks = response.data
         })
+    },
+    methods: {
+        pushTask() {
+            const data = {
+                addedTask: this.newTask
+            }
+            axios.post(this.apiUrl, data, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            }).then((response) => {
+                this.newTask = ''
+                this.tasks = response.data
+            })
+        }
     }
 }).mount('#app')
