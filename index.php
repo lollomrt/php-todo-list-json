@@ -19,8 +19,8 @@
             <div class="container-fluid d-flex align-items-center justify-content-center flex-column h-100vh">
                 <div class="row w-50">
                     <div class="col">
-                        <table class="table table-striped w-100">
-                            <thead>
+                        <table class="table table-striped w-100 table-bordered thead-dark">
+                            <thead class="thead-dark">
                                 <tr>
                                     <td class="col-10">linguaggi</td>
                                     <td class="col-2">elimina</td>
